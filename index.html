@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    
+    <link rel="shortcut icon" type="imges/png" href="./imges/favicon.png">
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+  
+    <script src="https://kit.fontawesome.com/50c885be6d.js" crossorigin="anonymous"></script>
+    
+</head>
+
+<body>
+
+<div class="container-fluid bg-white chatbox shadow-lg rounded">
+
+<div class="row h-100">
+    <div class="col-md-4 pr-0 d-none d-md-block " id="side-1">
+        <div class="card h-100">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-8 col-sm-10 col-md-8 col-lg-8">
+                        <img id="imgprofile" src="./imges/pp5.png" class="rounded-circle profile">
+                    </div>
+                    <div class="col-2 col-sm-1 col-md-2 col-lg-2 ">
+                        <i class="fas fa-arrow-left d-md-none" style="font-size: 20px; margin-top: 15px; cursor: pointer; float: right;" onclick="hideChatList()"></i>
+                    </div>
+                    
+                    <div class="col-2 col-sm-1 col-md-2 col-lg-2">
+                        <div class="dropleft">
+                            <span class="dropdown-toggle" data-toggle="dropdown" style="float: right;">
+                                <i class="fas fa-ellipsis-v icon" style="margin-top: 6px;cursor: pointer;"></i>
+                            </span>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item" id="lnkNewChat" onclick="PopulateFriendList()"  data-toggle="modal" data-target="#modalFriendList">New Chat</a>
+                                <a href="#" id="lnksignIn"  onclick="signin()" class="dropdown-item">Sign In</a>
+                                <a href="#" id="lnksingOut" onclick="signOut()" class="dropdown-item" style="display: none;">Sign Out</a>
+
+                            </div>
+                           
+                            <div class="modal fade" id="modalFriendList">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                Friend List
+                                                <span class="close" data-dismiss="modal" style="cursor:pointer;">&times;</span>
+                                            </div>
+                                            <ul class="list-group list-group-flush" id="lstFriend">
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            </div>
+            <ul class="list-group list-group-flush" id="lstchat">
+               
+                
+
+            </ul>
+
+        </div>
+    </div>
+    <div class="col-md-8 pl-0" id="side-2">
+        <div id="chatpanel" class="card " style="display: none;">
+            <div class="card-header">
+                <div class="row">
+                    
+                    <div class="col-2 col-sm-2 col-md-2 col-lg-1"><img src="./imges/pp5.png" class="rounded-circle profile" id="imgChat"></div>
+                    <div class="col-8 col-sm-8 col-md-8 col-lg-9"><div class="name" id="divChatName"> Name</div>
+                    <div class="under-name" id="divChatSeen">Last seen 7/122020</div></div>
+                    <div class="col-2 col-sm-2 col-md-2 icon col-lg-2">
+                        <i class="fas fa-list d-md-none " style="margin-top: 8px; cursor: pointer;" onclick="showChatList()"></i>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-body " id="messages">
+                
+               
+            </div>
+            <div class="card-footer"> 
+                <div class="row">
+                <div class="col-1 col-sm-1 col-md-1"><i class=""></i></div>
+                <div class="col-10 col-sm-10 col-md-10">
+                     <input id="textMessage"  type="text" placeholder="Type a Message.." class="form-control form-rounded" ></div>
+                <div class="col-1 col-sm-1 col-md-1"><i class=""></i></div>
+            </div> 
+            </div>
+        </div>
+        <div id="divstart" class="text-center mt-5"> 
+            <img  src="./imges/favicon.png" alt="" style="width: 280px; margin-left: 20px;">
+            
+            <h2 style="font-family: helvetica;font-weight: bold; ">HM <span style="color: rgb(59, 225, 247);"> Chat</span> Application</h2>
+            <button onclick="showChatList()"  class="btn btn-outline-danger fa fa-chat d-md-none"><span style="font-family: verdana;"> New chat </span> </button> <br><br>
+
+            <button onclick="signin()"  class="btn btn-outline-primary fa fa-google "><span style="font-family: verdana;"> sign up </span> </button> 
+            <button onclick="signOut()"  class="btn btn-outline-primary fa fa-google "><span style="font-family: verdana;"> sign out</span> </button>
+
+
+            <!-- <a href="#" class="fa fa-google" style="font-size: 17px; font-weight: bold;  text-decoration: none; "> <span style="font-family: verdana;">sign up with google account</span></a> -->
+        
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+    <script src="/bootstrap-4.4.1-dist/js/jquery-3.5.0.js"></script>
+    <script src="/bootstrap-4.4.1-dist/js/popper.min.js"></script>
+    <script src="/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase.js"></script>
+
+
+   
+
+    <script src="firebase.int.js"></script>
+    <script src="chat.js"></script>
+    
+</body>
+</html>
